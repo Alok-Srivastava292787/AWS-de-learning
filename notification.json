@@ -1,0 +1,12 @@
+{
+  "LambdaFunctionConfigurations": [{
+    "Id": "s3-to-lambda",
+    "LambdaFunctionArn": "arn:aws:lambda:us-east-1:463183325212:function:s3-ingestion-trigger",
+    "Events": ["s3:ObjectCreated:*"],
+    "Filter": {
+      "Key": {
+        "FilterRules": [{"Name": "prefix", "Value": "raw/"}]
+      }
+    }
+  }]
+}

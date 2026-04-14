@@ -1,0 +1,4 @@
+user_id,event,page,session_id,ingestion_ts,email 
+u0001,view,home,sess-1111,1705276800,u***@example.com 
+u0002,click,product,sess-2222,1705276860,u***@example.com 
+

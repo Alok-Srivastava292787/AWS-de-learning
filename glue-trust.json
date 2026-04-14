@@ -1,0 +1,131 @@
+{ 
+  "Version": "2012-10-17", 
+  "Statement": [{ 
+    "Effect": "Allow", 
+    "Principal": { "Service": "glue.amazonaws.com" }, 
+    "Action": "sts:AssumeRole" 
+  }] 
+} 
+EOF 
+ 
+aws iam create-role  --role-name GlueLabRole  --assume-role-policy-document file://../glue-trust.json  2>/dev/null || echo "Role may already exist, continuing..."
+ 
+# aws managed policy for Glue service 
+aws iam attach-role-policy --role-name GlueLabRole  --policy-arn arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole  2>/dev/null || true
+ 
+# Inline policy granting S3 access to the specific bucket 
+cat > ../glue-s3-policy.json << 'EOF' 
+{ 
+  "Version": "2012-10-17", 
+  "Statement": [{ 
+    "Effect": "Allow", 
+    "Action": ["s3:GetObject","s3:ListBucket"], 
+    "Resource": [ 
+      "arn:aws:s3:::$BUCKET_NAME", 
+      "arn:aws:s3:::$BUCKET_NAME/*" 
+    ] 
+  }] 
+} 
+EOF 
+ 
+aws iam put-role-policy  --role-name GlueLabRole  --policy-name S3DataLakeAccess  --policy-document file://../glue-s3-policy.json  2>/dev/null || true
+
+GLUE_ROLE=$(aws iam get-role --role-name GlueLabRole --query 'Role.Arn' --output text) 
+echo "✓ Glue Role ARN: $GLUE_ROLE"
+sleep 5 
+
+
+
+## Step 2: Create the Glue Data Catalog database 
+## A Glue database is a logical container for tables. Tables within a database typically share a 
+## common data domain or source system. 
+aws glue create-database  --database-input '{ 
+   "Name": "lab_datalake_db", 
+   "Description": "Day 1 lab data lake - S3 ingestion and streaming data" 
+ }' 2>/dev/null || echo "Database may already exist, continuing..."
+ 
+# Verify 
+echo "✓ Verifying database..."
+aws glue get-database --name lab_datalake_db  --query 'Database.{Name:Name, Description:Description}' 
+
+
+## Step 3: Create and configure the Glue Crawler 
+## Configure a crawler targeting the entire processed/ prefix. The CRAWL_NEW_FOLDERS_ONLY 
+## recrawl policy means subsequent runs only scan new partitions, not the full dataset – 
+## significantly reducing cost and runtime. 
+echo "Creating Glue Crawler..."
+aws glue create-crawler  --name "lab-processed-crawler"  --role "$GLUE_ROLE"  --database-name "lab_datalake_db"  --targets "{ 
+    \"S3Targets\": [{ 
+      \"Path\": \"s3://$BUCKET_NAME/processed/\", 
+      \"Exclusions\": [\"**/_temporary/**\", \"**/errors/**\", \"**/.keep\"] 
+    }] 
+  }"  --schema-change-policy '{ 
+    "UpdateBehavior": "LOG", 
+    "DeleteBehavior": "LOG" 
+  }'  --recrawl-policy '{"RecrawlBehavior": "CRAWL_NEW_FOLDERS_ONLY"}'  --configuration '{ 
+    "Version": 1.0, 
+    "CrawlerOutput": { 
+      "Partitions": {"AddOrUpdateBehavior": "InheritFromTable"} 
+    } 
+  }' 2>/dev/null || echo "Crawler may already exist, continuing..."
+ 
+# Verify creation 
+echo "✓ Verifying crawler..."
+aws glue get-crawler --name "lab-processed-crawler"  --query 'Crawler.{Name:Name, State:State, Role:Role}' 
+
+
+## Step 4: Run the crawler and monitor progress 
+## Start the crawler and poll until it returns to READY state. Typical run time for a small S3 prefix is 
+## 1–3 minutes. 
+echo "Starting crawler..."
+aws glue start-crawler --name "lab-processed-crawler" 2>/dev/null || echo "Crawler already running or error, checking state..."
+echo "Crawler started at: $(date)" 
+ 
+# Poll until READY (check every 15 seconds) 
+echo "Waiting for crawler to finish (checking every 15 seconds)..."
+while true; do 
+  STATE=$(aws glue get-crawler --name "lab-processed-crawler"    --query 'Crawler.State' --output text) 
+  echo "$(date): State = $STATE" 
+  if [ "$STATE" = "READY" ]; then 
+    echo "✓ Crawler finished!" 
+    break 
+  fi 
+  sleep 15 
+done 
+ 
+# Check last crawl metrics 
+echo "✓ Last crawl metrics:"
+aws glue get-crawler --name "lab-processed-crawler"  --query 'Crawler.LastCrawl' 
+
+
+## Step 5: Inspect the discovered tables and partitions 
+## Verify the Data Catalog tables were created correctly. Check the column schema, storage 
+## format, and discovered partitions. 
+echo ""
+echo "=================================="
+echo "Step 5: Inspecting discovered tables"
+echo "=================================="
+
+# List tables in the database 
+echo "✓ Tables in database:"
+aws glue get-tables --database-name lab_datalake_db  --query 'TableList[*].{Name:Name, Location:StorageDescriptor.Location, Format:StorageDescriptor.SerdeInfo.SerializationLibrary}' 2>/dev/null || echo "No tables found yet - crawler may need to complete or S3 data may not exist"
+ 
+# Try to get column details for the clickstream table (if it exists)
+echo ""
+echo "✓ Checking for clickstream_events table..."
+aws glue get-table --database-name lab_datalake_db --name clickstream_events  --query 'Table.StorageDescriptor.Columns[*].{Name:Name, Type:Type}' 2>/dev/null || echo "clickstream_events table not found - ensure Lab 2 (SQS pipeline) has produced data in S3"
+
+# List discovered partitions (if table exists)
+echo ""
+echo "✓ Checking for partitions..."
+aws glue get-partitions --database-name lab_datalake_db --table-name clickstream_events  --query 'Partitions[*].Values' 2>/dev/null || echo "No partitions found - table may not exist yet"
+
+echo ""
+echo "=========================================="
+echo "Lab 3 Complete! Summary:"
+echo "=========================================="
+echo "✓ Glue Role created: GlueLabRole"
+echo "✓ Database created: lab_datalake_db"
+echo "✓ Crawler created and executed: lab-processed-crawler"
+echo "✓ Data Catalog tables discovered from: s3://$BUCKET_NAME/processed/"
+echo "==========================================" 
