@@ -1,0 +1,8 @@
+[
+  {
+    "Id": "1",
+    "Arn": "$SFN_ARN",
+    "RoleArn": "$EB_ROLE",
+    "Input": "{\"bucket\":\"\",\"key\":\"raw/source=csv/year=2024/month=01/sample_events.csv\"}"
+  }
+]

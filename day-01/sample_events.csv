@@ -1,0 +1,4 @@
+user_id,event,page,timestamp
+u001,click,home,2024-01-15T10:00:00Z
+u002,view,product,2024-01-15T10:01:00Z
+u003,purchase,checkout,2024-01-15T10:02:00Z

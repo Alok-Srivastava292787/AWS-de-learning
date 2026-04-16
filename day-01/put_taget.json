@@ -1,0 +1,8 @@
+[
+  {
+    "Id": "1",
+    "Arn": "REPLACE_SFN_ARN",
+    "RoleArn": "REPLACE_EB_ROLE",
+    "Input": "{\"bucket\":\"REPLACE_BUCKET\",\"key\":\"raw/source=csv/year=2024/month=01/sample_events.csv\"}"
+  }
+]

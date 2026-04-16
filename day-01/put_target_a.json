@@ -1,0 +1,40 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Step Functions Executions",
+        "region": "us-east-1",
+        "metrics": [
+          ["AWS/States", "ExecutionsStarted", "StateMachineArn", "arn:aws:states:us-east-1:463183325212:stateMachine:IngestionPipeline"],
+          ["AWS/States", "ExecutionsSucceeded", "StateMachineArn", "arn:aws:states:us-east-1:463183325212:stateMachine:IngestionPipeline"],
+          ["AWS/States", "ExecutionsFailed", "StateMachineArn", "arn:aws:states:us-east-1:463183325212:stateMachine:IngestionPipeline"]
+        ],
+        "period": 300,
+        "stat": "Sum",
+        "view": "timeSeries"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "SQS Incoming Records",
+        "region": "us-east-1",
+        "metrics": [
+          ["AWS/SQS", "NumberOfMessagesSent", "QueueName", "clickstream-events"]
+        ],
+        "period": 60,
+        "stat": "Sum",
+        "view": "timeSeries"
+      }
+    }
+  ]
+}
