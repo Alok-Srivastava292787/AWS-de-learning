@@ -1,0 +1,30 @@
+{ 
+  "Version": "2012-10-17", 
+  "Statement": [ 
+    { 
+      "Effect": "Allow", 
+      "Action": ["lambda:InvokeFunction"], 
+      "Resource": "arn:aws:lambda:*:*:function:*" 
+    }, 
+    { 
+      "Effect": "Allow", 
+      "Action": ["glue:StartCrawler","glue:GetCrawler","glue:StopCrawler"], 
+      "Resource": "arn:aws:glue:*:*:crawler/*" 
+    }, 
+    { 
+      "Effect": "Allow", 
+      "Action": ["sns:Publish"], 
+      "Resource": "arn:aws:sns:us-east-1:463183325212:ingestion-alerts" 
+    }, 
+    { 
+      "Effect": "Allow", 
+      "Action": ["s3:GetObject","s3:HeadObject","s3:ListBucket"], 
+      "Resource": ["arn:aws:s3:::my-datalake-lab-alok","arn:aws:s3:::my-datalake-lab-alok/*"] 
+    }, 
+    { 
+      "Effect": "Allow", 
+      "Action": ["logs:CreateLogGroup","logs:CreateLogDelivery","logs:PutLogEvents"], 
+      "Resource": "arn:aws:logs:*:*:*" 
+    } 
+  ] 
+} 

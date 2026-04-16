@@ -1,0 +1,91 @@
+{ 
+  "Comment": "Ingestion Pipeline: validate input, run Glue crawler, notify result", 
+  "StartAt": "ValidateInput", 
+  "States": { 
+    "ValidateInput": { 
+      "Type": "Task", 
+      "Resource": "arn:aws:states:::lambda:invoke", 
+      "Parameters": { 
+        "FunctionName": "$VALIDATE_ARN", 
+        "Payload.$": "$" 
+      }, 
+      "ResultSelector": { "body.$": "States.StringToJson(States.Format('{}', States.JsonToString($.Payload)))" }, 
+      "ResultPath": "$.validation", 
+      "Retry": [{ 
+        "ErrorEquals": ["Lambda.ServiceException","Lambda.AWSLambdaException"], 
+        "IntervalSeconds": 5, "MaxAttempts": 3, "BackoffRate": 2 
+      }], 
+      "Catch": [{ 
+        "ErrorEquals": ["States.ALL"], 
+        "ResultPath": "$.error", 
+        "Next": "NotifyFailure" 
+      }], 
+      "Next": "StartGlueCrawler" 
+    }, 
+    "StartGlueCrawler": { 
+      "Type": "Task", 
+      "Resource": "arn:aws:states:::aws-sdk:glue:startCrawler", 
+      "Parameters": { "Name": "lab-processed-crawler" }, 
+      "ResultPath": null, 
+      "Catch": [{ 
+        "ErrorEquals": ["Glue.CrawlerRunningException"], 
+        "ResultPath": "$.error", 
+        "Next": "WaitForCrawler" 
+      },{ 
+        "ErrorEquals": ["States.ALL"], 
+        "ResultPath": "$.error", 
+        "Next": "NotifyFailure" 
+      }], 
+      "Next": "WaitForCrawler" 
+    }, 
+    "WaitForCrawler": { 
+      "Type": "Wait", 
+      "Seconds": 20, 
+      "Next": "CheckCrawlerStatus" 
+    }, 
+    "CheckCrawlerStatus": { 
+      "Type": "Task", 
+      "Resource": "arn:aws:states:::aws-sdk:glue:getCrawler", 
+      "Parameters": { "Name": "lab-processed-crawler" }, 
+      "ResultPath": "$.crawlerResult", 
+      "Next": "IsCrawlerDone" 
+    }, 
+    "IsCrawlerDone": { 
+      "Type": "Choice", 
+      "Choices": [
+	     { "Variable": "$.crawlerResult.Crawler.State", "StringEquals": "READY", "Next": "CheckLastCrawlStatus" }, 
+        { "Variable": "$.crawlerResult.Crawler.State", "StringEquals": "STOPPING", "Next": "WaitForCrawler" } 
+      ], 
+      "Default": "WaitForCrawler" 
+    }, 
+    "CheckLastCrawlStatus": { 
+      "Type": "Choice", 
+      "Choices": [{ 
+        "Variable": "$.crawlerResult.Crawler.LastCrawl.Status", 
+        "StringEquals": "SUCCEEDED", 
+        "Next": "NotifySuccess" 
+      }], 
+      "Default": "NotifyFailure" 
+    }, 
+    "NotifySuccess": { 
+      "Type": "Task", 
+      "Resource": "arn:aws:states:::sns:publish", 
+      "Parameters": { 
+        "TopicArn": "$SNS_ARN", 
+        "Subject": " Ingestion Pipeline Succeeded", 
+        "Message.$": "States.Format('Pipeline completed for bucket={} key={}. Crawler finished successfully.', $.bucket, $.key)" 
+      }, 
+      "End": true 
+    }, 
+    "NotifyFailure": { 
+      "Type": "Task", 
+      "Resource": "arn:aws:states:::sns:publish", 
+      "Parameters": { 
+        "TopicArn": "$SNS_ARN", 
+        "Subject": " Ingestion Pipeline FAILED", 
+        "Message.$": "States.Format('Pipeline FAILED for bucket={} key={}. Error: {}', $.bucket, $.key, States.JsonToString($.error))" 
+      }, 
+      "End": true 
+    } 
+  } 
+}
