@@ -1,0 +1,32 @@
+from pyspark.sql import SparkSession 
+from pyspark.sql.functions import ( 
+    col, to_timestamp, window, count, 
+    min as spark_min, max as spark_max, 
+    unix_timestamp, round as spark_round 
+) 
+from pyspark.sql.window import Window 
+ 
+spark = SparkSession.builder.appName('ClickstreamETL').getOrCreate() 
+ 
+# Read JSON from S3 
+df = spark.read.json('s3://my-datalake-lab-alok/raw/clickstream/clickstream_raw.json') 
+ 
+# Parse timestamp and add date partition column 
+df = df.withColumn('event_ts', to_timestamp(col('ts'), "yyyy-MM-dd'T'HH:mm:ss'Z'")) .withColumn('event_date', col('event_ts').cast('date')) 
+ 
+# Compute session metrics per user per day 
+session_df = df.groupBy('user_id', 'event_date').agg( 
+    count('*').alias('total_events'), 
+    spark_min('event_ts').alias('session_start'), 
+    spark_max('event_ts').alias('session_end') 
+).withColumn('session_duration_mins', 
+    spark_round((unix_timestamp('session_end') - unix_timestamp('session_start')) / 60, 
+2) 
+) 
+ 
+# Show results 
+session_df.show(truncate=False) 
+ 
+# Write partitioned Parquet to S3 
+session_df.write .mode('overwrite') .partitionBy('event_date') .parquet('s3://my-datalake-lab-alok/curated/sessions/') 
+spark.stop()

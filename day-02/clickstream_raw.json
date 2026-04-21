@@ -1,0 +1,5 @@
+{"user_id":"U001","event":"page_view","page":"/home","ts":"2024-03-01T09:00:00Z"} 
+{"user_id":"U001","event":"click","page":"/products","ts":"2024-03-01T09:02:30Z"} 
+{"user_id":"U002","event":"page_view","page":"/home","ts":"2024-03-01T09:01:00Z"} 
+{"user_id":"U001","event":"purchase","page":"/checkout","ts":"2024-03-01T09:08:00Z"} 
+{"user_id":"U002","event":"click","page":"/about","ts":"2024-03-01T09:05:00Z"} 

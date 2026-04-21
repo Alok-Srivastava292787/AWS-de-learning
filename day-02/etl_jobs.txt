@@ -1,0 +1,38 @@
+import sys 
+from awsglue.transforms import * 
+from awsglue.utils import getResolvedOptions 
+from pyspark.context import SparkContext 
+from awsglue.context import GlueContext 
+from awsglue.job import Job 
+from pyspark.sql.functions import col, upper, to_date 
+ 
+args = getResolvedOptions(sys.argv, ['JOB_NAME']) 
+sc = SparkContext() 
+glueContext = GlueContext(sc) 
+spark = glueContext.spark_session 
+job = Job(glueContext) 
+job.init(args['JOB_NAME'], args) 
+ 
+# Read from Glue Data Catalog 
+dyf = glueContext.create_dynamic_frame.from_catalog( 
+    database='sales_db', 
+    table_name='sales' 
+) 
+ 
+# Convert to Spark DataFrame for transformations 
+df = dyf.toDF() 
+ 
+# Transformations 
+df_clean = df \ 
+    .filter(col('amount') > 0) \ 
+    .withColumn('region', upper(col('region'))) \ 
+    .withColumn('order_date', to_date(col('order_date'), 'yyyy-MM-dd')) \ 
+    .withColumn('year', col('order_date').substr(1,4)) 
+ 
+# Write as Parquet, partitioned by region and year 
+df_clean.write \ 
+    .mode('overwrite') \ 
+    .partitionBy('region', 'year') \ 
+    .parquet('s3://your-bucket/curated/sales/') 
+ 
+job.commit()

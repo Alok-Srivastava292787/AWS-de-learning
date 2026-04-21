@@ -1,0 +1,6 @@
+order_id,customer_id,product,amount,order_date,region 
+1001,C001,Laptop,1200.00,2024-01-15,US-EAST 
+1002,C002,Mouse,25.50,2024-01-15,US-WEST 
+1003,C001,Keyboard,75.00,2024-01-16,US-EAST 
+1004,C003,Monitor,350.00,2024-01-16,EU-WEST 
+1005,C004,Laptop,1200.00,2024-01-17,AP-SOUTH 
