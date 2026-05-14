@@ -1,0 +1,15 @@
+event_ts,user_id,session_id,page,event_type,product_id,category,price
+2026-05-11 09:00:01,U001,S001,home,view,,,0
+2026-05-11 09:00:18,U001,S001,search,click,,,0
+2026-05-11 09:01:05,U001,S001,product_detail,view,P100,Electronics,699
+2026-05-11 09:01:20,U001,S001,product_detail,add_to_cart,P100,Electronics,699
+2026-05-11 09:02:10,U001,S001,checkout,purchase,P100,Electronics,699
+2026-05-11 09:05:30,U002,S002,home,view,,,0
+2026-05-11 09:06:02,U002,S002,product_detail,view,P101,Electronics,1299
+2026-05-11 09:06:45,U002,S002,product_detail,add_to_cart,P101,Electronics,1299
+2026-05-11 09:07:15,U003,S003,home,view,,,0
+2026-05-11 09:08:08,U003,S003,product_detail,view,P104,Accessories,49
+2026-05-11 09:08:40,U003,S003,product_detail,click,P104,Accessories,49
+2026-05-11 09:09:55,U004,S004,home,view,,,0
+2026-05-11 09:10:30,U004,S004,product_detail,view,P103,Accessories,89
+2026-05-11 09:11:12,U004,S004,checkout,purchase,P103,Accessories,89

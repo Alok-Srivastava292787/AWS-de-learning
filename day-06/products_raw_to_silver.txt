@@ -1,0 +1,31 @@
+# Products raw to silver (key transformations only)
+#_________Lines missing in the lab ________________
+from awsglue.context import GlueContext
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+
+
+# Initialize GlueContext
+sc = SparkContext.getOrCreate()
+glueContext = GlueContext(sc)
+from pyspark.sql import functions as F
+#_________Lines missing in the lab ________________
+raw_prod = glueContext.create_dynamic_frame.from_catalog(database='shopstream_raw_db', table_name='products').toDF()
+raw_prod = glueContext.create_dynamic_frame.from_catalog(database='shopstream_raw_db', table_name='products').toDF()
+
+silver_prod = (
+    raw_prod
+    .withColumn('price', F.col('price').cast(DoubleType()))
+    .withColumn('stock_qty', F.col('stock_qty').cast(IntegerType()))
+    .withColumn('category', F.initcap(F.trim('category')))
+    .withColumn('price_band',
+        F.when(F.col('price') < 50, 'Budget')
+         .when(F.col('price') < 500, 'Mid-Range')
+         .otherwise('Premium'))
+    .dropDuplicates(['product_id'])
+    .dropna(subset=['product_id', 'name', 'category'])
+)
+
+silver_prod.write.mode('overwrite') \
+    .parquet(f's3://{BUCKET}/silver/products/')
+

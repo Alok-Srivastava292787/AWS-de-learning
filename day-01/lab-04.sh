@@ -405,7 +405,9 @@ aws iam put-role-policy --role-name EventBridgeSFNRole  --policy-name InvokeSFN 
     }] 
   }"
 fi
+  SFN_ARN=$(aws stepfunctions describe-state-machine --state-machine-arn arn:aws:states:us-east-1:463183325212:stateMachine:IngestionPipeline --query 'stateMachineArn')
   EB_ROLE=$(aws iam get-role --role-name EventBridgeSFNRole --query 'Role.Arn' --output text)
+            
 # Create the daily schedule rule (2 AM UTC) 
 
 if (aws events get-rule  --name "daily-ingestion-pipeline" 2>/dev/null); then

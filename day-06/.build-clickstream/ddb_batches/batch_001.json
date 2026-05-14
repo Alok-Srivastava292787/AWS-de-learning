@@ -1,0 +1,681 @@
+{
+  "RequestItems": {
+    "products": [
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00001"
+            },
+            "name": {
+              "S": "Adaptive dynamic focus group"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "498.14"
+            },
+            "stock_qty": {
+              "S": "192"
+            },
+            "supplier_id": {
+              "S": "SUP055"
+            },
+            "created_at": {
+              "S": "2024-05-07"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00002"
+            },
+            "name": {
+              "S": "Triple-buffered 6thgeneration extranet"
+            },
+            "category": {
+              "S": "Sports"
+            },
+            "price": {
+              "N": "1172.7"
+            },
+            "stock_qty": {
+              "S": "329"
+            },
+            "supplier_id": {
+              "S": "SUP042"
+            },
+            "created_at": {
+              "S": "2024-06-12"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00003"
+            },
+            "name": {
+              "S": "Polarized dedicated adapter"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "1402.11"
+            },
+            "stock_qty": {
+              "S": "148"
+            },
+            "supplier_id": {
+              "S": "SUP062"
+            },
+            "created_at": {
+              "S": "2024-08-12"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00004"
+            },
+            "name": {
+              "S": "Switchable upward-trending application"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "364.48"
+            },
+            "stock_qty": {
+              "S": "202"
+            },
+            "supplier_id": {
+              "S": "SUP065"
+            },
+            "created_at": {
+              "S": "2025-05-12"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00005"
+            },
+            "name": {
+              "S": "Customizable hybrid concept"
+            },
+            "category": {
+              "S": "Sports"
+            },
+            "price": {
+              "N": "232.63"
+            },
+            "stock_qty": {
+              "S": "13"
+            },
+            "supplier_id": {
+              "S": "SUP090"
+            },
+            "created_at": {
+              "S": "2024-05-04"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00006"
+            },
+            "name": {
+              "S": "Balanced fault-tolerant encoding"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "1717.13"
+            },
+            "stock_qty": {
+              "S": "458"
+            },
+            "supplier_id": {
+              "S": "SUP090"
+            },
+            "created_at": {
+              "S": "2024-10-05"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00007"
+            },
+            "name": {
+              "S": "Universal zero tolerance matrix"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "1355.73"
+            },
+            "stock_qty": {
+              "S": "83"
+            },
+            "supplier_id": {
+              "S": "SUP036"
+            },
+            "created_at": {
+              "S": "2025-06-18"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00008"
+            },
+            "name": {
+              "S": "Upgradable reciprocal complexity"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "1266.19"
+            },
+            "stock_qty": {
+              "S": "187"
+            },
+            "supplier_id": {
+              "S": "SUP082"
+            },
+            "created_at": {
+              "S": "2025-04-24"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00009"
+            },
+            "name": {
+              "S": "Operative user-facing projection"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "948.29"
+            },
+            "stock_qty": {
+              "S": "74"
+            },
+            "supplier_id": {
+              "S": "SUP041"
+            },
+            "created_at": {
+              "S": "2026-03-15"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00010"
+            },
+            "name": {
+              "S": "Reduced multi-tasking database"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "317.41"
+            },
+            "stock_qty": {
+              "S": "462"
+            },
+            "supplier_id": {
+              "S": "SUP089"
+            },
+            "created_at": {
+              "S": "2024-07-16"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00011"
+            },
+            "name": {
+              "S": "Horizontal scalable migration"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "1725.27"
+            },
+            "stock_qty": {
+              "S": "276"
+            },
+            "supplier_id": {
+              "S": "SUP008"
+            },
+            "created_at": {
+              "S": "2024-06-27"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00012"
+            },
+            "name": {
+              "S": "Secured uniform array"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "861.36"
+            },
+            "stock_qty": {
+              "S": "485"
+            },
+            "supplier_id": {
+              "S": "SUP098"
+            },
+            "created_at": {
+              "S": "2025-09-20"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00013"
+            },
+            "name": {
+              "S": "Monitored radical software"
+            },
+            "category": {
+              "S": "Electronics"
+            },
+            "price": {
+              "N": "1303.51"
+            },
+            "stock_qty": {
+              "S": "383"
+            },
+            "supplier_id": {
+              "S": "SUP048"
+            },
+            "created_at": {
+              "S": "2024-06-20"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00014"
+            },
+            "name": {
+              "S": "Multi-channeled bottom-line project"
+            },
+            "category": {
+              "S": "Electronics"
+            },
+            "price": {
+              "N": "371.03"
+            },
+            "stock_qty": {
+              "S": "251"
+            },
+            "supplier_id": {
+              "S": "SUP044"
+            },
+            "created_at": {
+              "S": "2024-10-25"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00015"
+            },
+            "name": {
+              "S": "Proactive mission-critical system engine"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "810.45"
+            },
+            "stock_qty": {
+              "S": "357"
+            },
+            "supplier_id": {
+              "S": "SUP059"
+            },
+            "created_at": {
+              "S": "2024-07-05"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00016"
+            },
+            "name": {
+              "S": "Persistent high-level neural-net"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "356.0"
+            },
+            "stock_qty": {
+              "S": "493"
+            },
+            "supplier_id": {
+              "S": "SUP091"
+            },
+            "created_at": {
+              "S": "2026-03-13"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00017"
+            },
+            "name": {
+              "S": "Automated zero administration success"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "1388.89"
+            },
+            "stock_qty": {
+              "S": "296"
+            },
+            "supplier_id": {
+              "S": "SUP005"
+            },
+            "created_at": {
+              "S": "2024-12-23"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00018"
+            },
+            "name": {
+              "S": "Digitized 5thgeneration Graphical User Interface"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "1881.52"
+            },
+            "stock_qty": {
+              "S": "396"
+            },
+            "supplier_id": {
+              "S": "SUP066"
+            },
+            "created_at": {
+              "S": "2025-05-23"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00019"
+            },
+            "name": {
+              "S": "Visionary attitude-oriented alliance"
+            },
+            "category": {
+              "S": "Electronics"
+            },
+            "price": {
+              "N": "514.05"
+            },
+            "stock_qty": {
+              "S": "498"
+            },
+            "supplier_id": {
+              "S": "SUP027"
+            },
+            "created_at": {
+              "S": "2025-12-20"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00020"
+            },
+            "name": {
+              "S": "Monitored local groupware"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "1121.93"
+            },
+            "stock_qty": {
+              "S": "431"
+            },
+            "supplier_id": {
+              "S": "SUP002"
+            },
+            "created_at": {
+              "S": "2024-09-26"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00021"
+            },
+            "name": {
+              "S": "Extended dynamic hierarchy"
+            },
+            "category": {
+              "S": "Electronics"
+            },
+            "price": {
+              "N": "40.03"
+            },
+            "stock_qty": {
+              "S": "88"
+            },
+            "supplier_id": {
+              "S": "SUP016"
+            },
+            "created_at": {
+              "S": "2024-05-14"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00022"
+            },
+            "name": {
+              "S": "Total fault-tolerant circuit"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "1962.02"
+            },
+            "stock_qty": {
+              "S": "309"
+            },
+            "supplier_id": {
+              "S": "SUP019"
+            },
+            "created_at": {
+              "S": "2026-01-27"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00023"
+            },
+            "name": {
+              "S": "Triple-buffered clear-thinking open system"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "799.21"
+            },
+            "stock_qty": {
+              "S": "265"
+            },
+            "supplier_id": {
+              "S": "SUP025"
+            },
+            "created_at": {
+              "S": "2026-05-04"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00024"
+            },
+            "name": {
+              "S": "Enhanced contextually-based info-mediaries"
+            },
+            "category": {
+              "S": "Sports"
+            },
+            "price": {
+              "N": "394.75"
+            },
+            "stock_qty": {
+              "S": "427"
+            },
+            "supplier_id": {
+              "S": "SUP048"
+            },
+            "created_at": {
+              "S": "2024-07-02"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P00025"
+            },
+            "name": {
+              "S": "Phased non-volatile success"
+            },
+            "category": {
+              "S": "Electronics"
+            },
+            "price": {
+              "N": "1322.86"
+            },
+            "stock_qty": {
+              "S": "154"
+            },
+            "supplier_id": {
+              "S": "SUP067"
+            },
+            "created_at": {
+              "S": "2025-06-27"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+    "ResultSet": {
+        "Rows": [
+            {
+                "Data": [
+                    {
+                        "VarCharValue": "category"
+                    },
+                    {
+                        "VarCharValue": "events"
+                    },
+                    {
+                        "VarCharValue": "revenue"
+                    }
+                ]
+            },
+            {
+                "Data": [
+                    {
+                        "VarCharValue": "Electronics"
+                    },
+                    {
+                        "VarCharValue": "5"
+                    },
+                    {
+                        "VarCharValue": "4695"
+                    }
+                ]
+            },
+            {
+                "Data": [
+                    {
+                        "VarCharValue": "Accessories"
+                    },
+                    {
+                        "VarCharValue": "4"
+                    },
+                    {
+                        "VarCharValue": "276"
+                    }
+                ]
+            },
+            {
+                "Data": [
+                    {},
+                    {
+                        "VarCharValue": "5"
+                    },
+                    {
+                        "VarCharValue": "0"
+                    }
+                ]
+            }
+        ],
+        "ResultSetMetadata": {
+            "ColumnInfo": [
+                {
+                    "CatalogName": "hive",
+                    "SchemaName": "",
+                    "TableName": "",
+                    "Name": "category",
+                    "Label": "category",
+                    "Type": "varchar",
+                    "Precision": 2147483647,
+                    "Scale": 0,
+                    "Nullable": "UNKNOWN",
+                    "CaseSensitive": true
+                },
+                {
+                    "CatalogName": "hive",
+                    "SchemaName": "",
+                    "TableName": "",
+                    "Name": "events",
+                    "Label": "events",
+                    "Type": "bigint",
+                    "Precision": 19,
+                    "Scale": 0,
+                    "Nullable": "UNKNOWN",
+                    "CaseSensitive": false
+                },
+                {
+                    "CatalogName": "hive",
+                    "SchemaName": "",
+                    "TableName": "",
+                    "Name": "revenue",
+                    "Label": "revenue",
+                    "Type": "bigint",
+                    "Precision": 19,
+                    "Scale": 0,
+                    "Nullable": "UNKNOWN",
+                    "CaseSensitive": false
+                }
+            ]
+        }
+    },
+    "UpdateCount": 0
+}

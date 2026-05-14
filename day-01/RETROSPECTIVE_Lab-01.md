@@ -1,4 +1,5 @@
 # Lab 01: S3 Data Lake Setup with Lambda Event Notifications - Retrospective
+$R^2_{adj.} = 1 - (1-R^2)*\frac{n-1}{n-p-1}$
 
 **Completion Date:** April 13, 2026  
 **Status:** ✅ COMPLETE  

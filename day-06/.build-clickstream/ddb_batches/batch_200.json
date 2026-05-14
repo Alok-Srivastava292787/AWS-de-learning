@@ -1,0 +1,681 @@
+{
+  "RequestItems": {
+    "products": [
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04976"
+            },
+            "name": {
+              "S": "Optimized clear-thinking synergy"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "1165.75"
+            },
+            "stock_qty": {
+              "S": "476"
+            },
+            "supplier_id": {
+              "S": "SUP025"
+            },
+            "created_at": {
+              "S": "2025-05-25"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04977"
+            },
+            "name": {
+              "S": "De-engineered 3rdgeneration extranet"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "1777.62"
+            },
+            "stock_qty": {
+              "S": "140"
+            },
+            "supplier_id": {
+              "S": "SUP050"
+            },
+            "created_at": {
+              "S": "2024-09-09"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04978"
+            },
+            "name": {
+              "S": "Ergonomic static function"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "795.53"
+            },
+            "stock_qty": {
+              "S": "128"
+            },
+            "supplier_id": {
+              "S": "SUP060"
+            },
+            "created_at": {
+              "S": "2025-03-18"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04979"
+            },
+            "name": {
+              "S": "Synergistic system-worthy Graphical User Interface"
+            },
+            "category": {
+              "S": "Sports"
+            },
+            "price": {
+              "N": "1556.59"
+            },
+            "stock_qty": {
+              "S": "325"
+            },
+            "supplier_id": {
+              "S": "SUP077"
+            },
+            "created_at": {
+              "S": "2024-12-12"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04980"
+            },
+            "name": {
+              "S": "Right-sized bottom-line approach"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "172.96"
+            },
+            "stock_qty": {
+              "S": "113"
+            },
+            "supplier_id": {
+              "S": "SUP077"
+            },
+            "created_at": {
+              "S": "2025-06-13"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04981"
+            },
+            "name": {
+              "S": "Right-sized full-range archive"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "1919.06"
+            },
+            "stock_qty": {
+              "S": "75"
+            },
+            "supplier_id": {
+              "S": "SUP021"
+            },
+            "created_at": {
+              "S": "2026-03-15"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04982"
+            },
+            "name": {
+              "S": "Monitored even-keeled open architecture"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "615.57"
+            },
+            "stock_qty": {
+              "S": "111"
+            },
+            "supplier_id": {
+              "S": "SUP015"
+            },
+            "created_at": {
+              "S": "2025-12-02"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04983"
+            },
+            "name": {
+              "S": "Grass-roots value-added throughput"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "1775.3"
+            },
+            "stock_qty": {
+              "S": "443"
+            },
+            "supplier_id": {
+              "S": "SUP055"
+            },
+            "created_at": {
+              "S": "2025-05-07"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04984"
+            },
+            "name": {
+              "S": "Quality-focused exuding Local Area Network"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "504.56"
+            },
+            "stock_qty": {
+              "S": "129"
+            },
+            "supplier_id": {
+              "S": "SUP010"
+            },
+            "created_at": {
+              "S": "2025-01-19"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04985"
+            },
+            "name": {
+              "S": "Object-based client-driven pricing structure"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "253.11"
+            },
+            "stock_qty": {
+              "S": "287"
+            },
+            "supplier_id": {
+              "S": "SUP056"
+            },
+            "created_at": {
+              "S": "2025-01-10"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04986"
+            },
+            "name": {
+              "S": "Managed dedicated Local Area Network"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "478.91"
+            },
+            "stock_qty": {
+              "S": "452"
+            },
+            "supplier_id": {
+              "S": "SUP046"
+            },
+            "created_at": {
+              "S": "2025-01-09"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04987"
+            },
+            "name": {
+              "S": "Inverse system-worthy Graphical User Interface"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "54.36"
+            },
+            "stock_qty": {
+              "S": "236"
+            },
+            "supplier_id": {
+              "S": "SUP027"
+            },
+            "created_at": {
+              "S": "2025-02-16"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04988"
+            },
+            "name": {
+              "S": "Virtual non-volatile utilization"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "1955.12"
+            },
+            "stock_qty": {
+              "S": "113"
+            },
+            "supplier_id": {
+              "S": "SUP064"
+            },
+            "created_at": {
+              "S": "2024-07-04"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04989"
+            },
+            "name": {
+              "S": "Stand-alone bi-directional Internet solution"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "1762.44"
+            },
+            "stock_qty": {
+              "S": "101"
+            },
+            "supplier_id": {
+              "S": "SUP044"
+            },
+            "created_at": {
+              "S": "2025-05-24"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04990"
+            },
+            "name": {
+              "S": "Organic executive moratorium"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "290.67"
+            },
+            "stock_qty": {
+              "S": "246"
+            },
+            "supplier_id": {
+              "S": "SUP004"
+            },
+            "created_at": {
+              "S": "2025-06-04"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04991"
+            },
+            "name": {
+              "S": "Streamlined grid-enabled forecast"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "1576.38"
+            },
+            "stock_qty": {
+              "S": "175"
+            },
+            "supplier_id": {
+              "S": "SUP053"
+            },
+            "created_at": {
+              "S": "2025-10-23"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04992"
+            },
+            "name": {
+              "S": "Proactive local application"
+            },
+            "category": {
+              "S": "Sports"
+            },
+            "price": {
+              "N": "1462.34"
+            },
+            "stock_qty": {
+              "S": "493"
+            },
+            "supplier_id": {
+              "S": "SUP003"
+            },
+            "created_at": {
+              "S": "2024-08-07"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04993"
+            },
+            "name": {
+              "S": "De-engineered high-level capacity"
+            },
+            "category": {
+              "S": "Electronics"
+            },
+            "price": {
+              "N": "1064.19"
+            },
+            "stock_qty": {
+              "S": "469"
+            },
+            "supplier_id": {
+              "S": "SUP023"
+            },
+            "created_at": {
+              "S": "2024-06-05"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04994"
+            },
+            "name": {
+              "S": "Down-sized asymmetric orchestration"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "1756.37"
+            },
+            "stock_qty": {
+              "S": "253"
+            },
+            "supplier_id": {
+              "S": "SUP045"
+            },
+            "created_at": {
+              "S": "2025-05-17"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04995"
+            },
+            "name": {
+              "S": "Compatible bandwidth-monitored implementation"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "941.15"
+            },
+            "stock_qty": {
+              "S": "92"
+            },
+            "supplier_id": {
+              "S": "SUP085"
+            },
+            "created_at": {
+              "S": "2025-11-03"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04996"
+            },
+            "name": {
+              "S": "Future-proofed explicit orchestration"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "365.38"
+            },
+            "stock_qty": {
+              "S": "403"
+            },
+            "supplier_id": {
+              "S": "SUP040"
+            },
+            "created_at": {
+              "S": "2026-01-04"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04997"
+            },
+            "name": {
+              "S": "Networked maximized infrastructure"
+            },
+            "category": {
+              "S": "Beauty"
+            },
+            "price": {
+              "N": "770.6"
+            },
+            "stock_qty": {
+              "S": "15"
+            },
+            "supplier_id": {
+              "S": "SUP006"
+            },
+            "created_at": {
+              "S": "2026-01-27"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04998"
+            },
+            "name": {
+              "S": "Mandatory homogeneous functionalities"
+            },
+            "category": {
+              "S": "Books"
+            },
+            "price": {
+              "N": "1990.58"
+            },
+            "stock_qty": {
+              "S": "400"
+            },
+            "supplier_id": {
+              "S": "SUP083"
+            },
+            "created_at": {
+              "S": "2025-03-02"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P04999"
+            },
+            "name": {
+              "S": "Centralized cohesive benchmark"
+            },
+            "category": {
+              "S": "Home"
+            },
+            "price": {
+              "N": "727.21"
+            },
+            "stock_qty": {
+              "S": "100"
+            },
+            "supplier_id": {
+              "S": "SUP058"
+            },
+            "created_at": {
+              "S": "2025-05-27"
+            }
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "product_id": {
+              "S": "P05000"
+            },
+            "name": {
+              "S": "Stand-alone web-enabled data-warehouse"
+            },
+            "category": {
+              "S": "Clothing"
+            },
+            "price": {
+              "N": "167.13"
+            },
+            "stock_qty": {
+              "S": "252"
+            },
+            "supplier_id": {
+              "S": "SUP016"
+            },
+            "created_at": {
+              "S": "2025-07-27"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
